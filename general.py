@@ -6,6 +6,7 @@ import numpy as np
 from copy import deepcopy
 import math
 from torchtext_folder import torchtext
+from torchtext_folder_copy import vocab
 from collections import Counter
 
 
@@ -24,7 +25,7 @@ def mask_input(input_sentence):
     # create a mask to be used when inputting into the attention layer, with 0's in positions of the '<PAD>' string
     input_padding, input_mask = '<pad>', np.ones_like(input_sentence)
     useless_required_counter = Counter()
-    vocab_obj = torchtext.vocab.Vocab(counter=useless_required_counter)
+    vocab_obj = vocab.Vocab(counter=useless_required_counter)
     # ^ this obj is not needed beyond its function to convert string to int
     padding_encoded = vocab_obj.stoi[input_padding]
 
