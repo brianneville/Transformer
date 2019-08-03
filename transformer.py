@@ -1,6 +1,6 @@
 from encoder import Encoder
 from decoder import Decoder
-from torch.functional import log_softmax
+from torch.nn.functional import log_softmax
 import torch.nn as nn
 
 
