@@ -21,7 +21,7 @@ class Decoder(nn.Module):
         x = self.embedding(target_seq)
         x = self.positional_encoder(x)
         for i in range(self.N):
-            x = self.layers[i](x, encoder_outputs, source_mask, target_mask)
+            x = self.N_modulelist[i](x, encoder_outputs, source_mask, target_mask)
         return self.norm_final(x)
 
 
