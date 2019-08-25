@@ -23,7 +23,7 @@ class Encoder(nn.Module):
         x = self.embedding(input_seq)
         x = self.positional_encoder(x)
         for i in range(self.N):
-            x = self.layers[i](x, source_mask)
+            x = self.N_modulelist[i](x, source_mask)
         return self.norm_final(x)
 
 
